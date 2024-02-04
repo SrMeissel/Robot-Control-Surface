@@ -11,16 +11,19 @@ find_package(ament_cmake REQUIRED)
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 
-# set(Qt6_DIR /home/meissel/Qt/6.6.1/gcc_64/lib/cmake)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 set(CMAKE_PREFIX_PATH "/home/meissel/Qt/6.6.1/gcc_64")
-find_package(Qt6 REQUIRED COMPONENTS Widgets)
+find_package(Qt6 REQUIRED COMPONENTS Widgets Core Gui)
 qt_standard_project_setup()
 
-add_executable(surface src/surface.cpp)
+add_executable(surface 
+src/surface.cpp
+src/mainWindow.h
+)
 
-#set_target_properties(surface PROPERTIES INSTALL_RPATH /home/meissel/Qt/6.6.1/gcc_64/lib)
-
-target_link_libraries(surface PRIVATE Qt6::Widgets)
+target_link_libraries(surface PRIVATE Qt6::Widgets Qt6::Core Qt6::Gui)
 
 target_include_directories(surface PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
