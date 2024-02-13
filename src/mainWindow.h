@@ -36,6 +36,7 @@ public:
         Greivous->setGeometry(QRect(170, 90, 104, 70));
 
         retranslateUi(Form);
+        //QObject::connect(pushButton, SIGNAL(clicked()), Greivous, SLOT(undo()));
 
         QMetaObject::connectSlotsByName(Form);
     } // setupUi

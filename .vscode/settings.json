@@ -1,5 +1,7 @@
 {
     "files.associations": {
-        "qapplication": "cpp"
+        "qapplication": "cpp",
+        "*.tcc": "cpp",
+        "string": "cpp"
     }
 }

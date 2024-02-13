@@ -38,5 +38,22 @@
   </widget>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>Greivous</receiver>
+   <slot>undo()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>94</x>
+     <y>92</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>221</x>
+     <y>124</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

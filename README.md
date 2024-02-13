@@ -13,4 +13,6 @@ Note: you have to re source ROS again afterwards.
 Then theres this bullshit:  
 ~~~
 uic mainWindow.ui -o mainWindow.cpp
+moc mainWindow.cpp -o mainWindow.moc
 ~~~
+maybe not anymore ^ (Set RPATH in cmake)
