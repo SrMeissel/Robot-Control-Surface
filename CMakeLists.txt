@@ -11,6 +11,9 @@ find_package(ament_cmake REQUIRED)
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 
+find_package(rclcpp REQUIRED)
+find_package(std_msgs REQUIRED)
+
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
@@ -26,15 +29,22 @@ src/mainWindow.h
 src/uic_mainWindow.h
 src/Interface.h
 src/Interface.cpp
+#
+src/PublisherExample.cpp
 )
 
-target_link_libraries(surface PRIVATE Qt6::Widgets Qt6::Core Qt6::Gui)
+target_link_libraries(surface PRIVATE Qt6::Widgets Qt6::Core Qt6::Gui ${rclcpp_LIBRARIES} ${std_msgs_LIBRARIES} ss)
+# ament_target_dependencies(surface Qt6::Widgets Qt6::Core Qt6::Gui rclcpp std_msgs)
+
 
 target_include_directories(surface PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-  $<INSTALL_INTERFACE:include>)
+  $<INSTALL_INTERFACE:include>
+  ${rclcpp_INCLUDE_DIRS}
+  )
 target_compile_features(surface PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
 
+# different build?
 install(TARGETS surface
   DESTINATION lib/${PROJECT_NAME})
 

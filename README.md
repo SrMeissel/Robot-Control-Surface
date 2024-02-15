@@ -19,3 +19,4 @@ maybe not anymore ^ (Set RPATH in cmake)
 
 https://www.youtube.com/watch?v=KugPAznC4Yo
 https://stackoverflow.com/questions/54464488/ros-qt-gui-how-to-distribute-the-threads
+https://answers.ros.org/question/335364/ros2-rclcpp-linking-error-and-correct-way-to-handle-dependencies/
