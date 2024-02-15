@@ -1,8 +1,8 @@
 #include <cstdio>
 
 #include <QApplication>
-#include "mainWindow.h"
-#include "mainWindow.cpp"
+// #include "mainWindow.h"
+#include "Interface.h"
 
 int main(int argc, char ** argv)
 {
@@ -14,8 +14,11 @@ int main(int argc, char ** argv)
   //ui.setupUi(&widget);
 
   //using my code
-  Interface interface{&widget};
-  //interface.setupUi(&widget);
+  Ui_Window window{&widget};
+  Interface* interface = new Interface;
+  interface->window = &window;
+
+  QObject::connect(window.pushButton, SIGNAL(clicked()), interface, SLOT(onClick()));
 
   widget.show();
 

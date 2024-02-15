@@ -20,9 +20,10 @@ qt_standard_project_setup()
 
 add_executable(surface 
 src/surface.cpp
-src/mainWindow.cpp
 src/mainWindow.h
-src/mainWindow.moc
+src/uic_mainWindow.h
+src/Interface.h
+src/Interface.cpp
 )
 
 target_link_libraries(surface PRIVATE Qt6::Widgets Qt6::Core Qt6::Gui)

@@ -16,3 +16,5 @@ uic mainWindow.ui -o mainWindow.cpp
 moc mainWindow.cpp -o mainWindow.moc
 ~~~
 maybe not anymore ^ (Set RPATH in cmake)
+
+https://www.youtube.com/watch?v=KugPAznC4Yo
