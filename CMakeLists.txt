@@ -20,6 +20,8 @@ qt_standard_project_setup()
 
 add_executable(surface 
 src/surface.cpp
+src/app.hpp
+src/app.cpp
 src/mainWindow.h
 src/uic_mainWindow.h
 src/Interface.h

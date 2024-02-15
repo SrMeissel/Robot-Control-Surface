@@ -18,3 +18,4 @@ moc mainWindow.cpp -o mainWindow.moc
 maybe not anymore ^ (Set RPATH in cmake)
 
 https://www.youtube.com/watch?v=KugPAznC4Yo
+https://stackoverflow.com/questions/54464488/ros-qt-gui-how-to-distribute-the-threads
