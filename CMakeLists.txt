@@ -14,19 +14,26 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 
+# I guess this is ok. I would much prefer a single find_package(gtk4 REQUIRED)
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(GTK4 REQUIRED IMPORTED_TARGET gtk4)
+
 add_executable(surface 
-# src/app.hpp
-# src/app.cpp
+src/app.hpp
+src/app.cpp
 #
-src/PublisherExample.cpp
+# src/PublisherExample.cpp
 )
 
-ament_target_dependencies(surface rclcpp std_msgs)
+ament_target_dependencies(surface rclcpp std_msgs) 
+
+# target_link_libraries(surface PRIVATE PkgConfig::GTK4)
 
 target_include_directories(surface PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>
   ${rclcpp_INCLUDE_DIRS}
+  ${GTK4_INCLUDE_DIRS}
   )
 target_compile_features(surface PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
 
