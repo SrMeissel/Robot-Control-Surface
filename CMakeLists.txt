@@ -25,9 +25,10 @@ src/app.cpp
 # src/PublisherExample.cpp
 )
 
-ament_target_dependencies(surface rclcpp std_msgs) 
-
-# target_link_libraries(surface PRIVATE PkgConfig::GTK4)
+# GTK4 also requires using target_link_libraries 
+# because it has other libraries like GObject associated with it
+target_link_libraries(surface ${GTK4_LIBRARIES})
+ament_target_dependencies(surface rclcpp std_msgs GTK4) 
 
 target_include_directories(surface PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
@@ -37,7 +38,6 @@ target_include_directories(surface PUBLIC
   )
 target_compile_features(surface PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
 
-# different build?
 install(TARGETS surface
   DESTINATION lib/${PROJECT_NAME})
 
