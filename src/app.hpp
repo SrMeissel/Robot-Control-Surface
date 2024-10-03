@@ -7,9 +7,9 @@
 
 class Surface : public rclcpp::Node {
 public:
-  Surface() : Node("controlSurface") {
-    // setup;
-  }
+  Surface();
+  ~Surface();
 
 private:
+  GtkApplication *app;
 };
