@@ -10,6 +10,11 @@ public:
   Surface();
   ~Surface();
 
+  // Used to ensure C function pointers are working properly :)
+  void printSomething() { RCLCPP_INFO(get_logger(), "Hello, world!"); }
+
 private:
+  int createWindow(); // this is a blocking function.
+
   GtkApplication *app;
 };
