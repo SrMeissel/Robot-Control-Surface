@@ -13,6 +13,7 @@ find_package(ament_cmake REQUIRED)
 
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
+find_package(geometry_msgs REQUIRED)
 
 # I guess this is ok. I would much prefer a single find_package(gtk4 REQUIRED)
 find_package(PkgConfig REQUIRED)
@@ -28,7 +29,7 @@ src/app.cpp
 # GTK4 also requires using target_link_libraries 
 # because it has other libraries like GObject associated with it
 target_link_libraries(surface ${GTK4_LIBRARIES})
-ament_target_dependencies(surface rclcpp std_msgs GTK4) 
+ament_target_dependencies(surface rclcpp std_msgs geometry_msgs GTK4) 
 
 target_include_directories(surface PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>

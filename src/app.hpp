@@ -2,6 +2,7 @@
 
 #include <gtk/gtk.h>
 
+#include "geometry_msgs/msg/twist.hpp"
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/string.hpp"
 
@@ -11,10 +12,12 @@ public:
   ~Surface();
 
   // Used to ensure C function pointers are working properly :)
-  void printSomething() { RCLCPP_INFO(get_logger(), "Hello, world!"); }
+  void printSomething(char *text) { RCLCPP_INFO(get_logger(), text); }
 
 private:
   int createWindow(); // this is a blocking function.
+
+  rclcpp::Subscription<geometry_msgs::msg::Twist>::SharedPtr sub;
 
   GtkApplication *app;
 };

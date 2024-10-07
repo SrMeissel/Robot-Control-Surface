@@ -9,7 +9,10 @@
 
   <depend>rclcpp</depend>
   <depend>std_msgs</depend>
+  <depend>geometry_msgs</depend>
   <depend>gtk4</depend>
+
+  <exec_depend>ros2launch</exec_depend>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
