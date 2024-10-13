@@ -13,14 +13,12 @@ public:
 
   // Used to ensure C function pointers are working properly :)
   void printSomething(const geometry_msgs::msg::Twist &msg) const {
+    (void)msg;
     RCLCPP_INFO(this->get_logger(), "recieved message over topic!");
   }
 
 private:
-  int createWindow(); // this is a blocking function.
-
   rclcpp::Subscription<geometry_msgs::msg::Twist>::SharedPtr sub;
-  rclcpp::CallbackGroup::SharedPtr callBackGroup;
   rclcpp::TimerBase::SharedPtr timer;
 
   GtkApplication *app;
